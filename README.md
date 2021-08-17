@@ -14,8 +14,8 @@ This is the Code Institute student template for deploying your third portfolio p
 
 When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
 
-1. heroku/python
-2. heroku/nodejs
+1. `heroku/python`
+2. `heroku/nodejs`
 
 If you have credentials, such as in the Love Sandwiches project, you must create an environment variable called `CREDS` and paste the JSON into the value field.
 
