@@ -3,10 +3,7 @@ const fs = require('fs');
 
 exports.install = function () {
 
-    // Route to views/index
     ROUTE('/');
-
-    // WebSocket route
     WEBSOCKET('/', socket, ['raw']);
 
 };
@@ -20,7 +17,7 @@ function socket() {
 
     self.on('open', function (client) {
 
-        // Each client will have own terminal
+        // Spawn terminal
         client.tty = Pty.spawn('python3', ['run.py'], {
             name: 'xterm-color',
             cols: 80,
@@ -30,7 +27,6 @@ function socket() {
         });
 
         client.tty.on('exit', function (code, signal) {
-            // What now?
             client.tty = null;
             client.close();
             console.log("Process killed");
@@ -56,6 +52,7 @@ function socket() {
 }
 
 if (process.env.CREDS != null) {
+    console.log("Creating creds.json file.");
     fs.writeFile('creds.json', process.env.CREDS, 'utf8', function (err) {
         if (err) {
             console.log('Error writing file: ', err);
