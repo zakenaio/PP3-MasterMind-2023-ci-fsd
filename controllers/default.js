@@ -10,12 +10,10 @@ exports.install = function () {
 
 function socket() {
 
-    var self = this;
+    this.encodedecode = false;
+    this.autodestroy();
 
-    self.encodedecode = false;
-    self.autodestroy();
-
-    self.on('open', function (client) {
+    this.on('open', function (client) {
 
         // Spawn terminal
         client.tty = Pty.spawn('python3', ['run.py'], {
@@ -38,7 +36,7 @@ function socket() {
 
     });
 
-    self.on('close', function (client) {
+    this.on('close', function (client) {
         if (client.tty) {
             client.tty.kill(9);
             client.tty = null;
@@ -46,7 +44,7 @@ function socket() {
         }
     });
 
-    self.on('message', function (client, msg) {
+    this.on('message', function (client, msg) {
         client.tty && client.tty.write(msg);
     });
 }
