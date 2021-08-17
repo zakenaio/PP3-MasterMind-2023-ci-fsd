@@ -1,9 +1,6 @@
 const Pty = require('node-pty');
 const fs = require('fs');
 
-const WIDTH = process.env.WIDTH != null ? process.env.WIDTH : 80;
-const HEIGHT = process.env.HEIGHT != null ? process.env.HEIGHT : 24;
-
 exports.install = function () {
 
     // Route to views/index
@@ -26,8 +23,8 @@ function socket() {
         // Each client will have own terminal
         client.tty = Pty.spawn('python3', ['run.py'], {
             name: 'xterm-color',
-            cols: WIDTH,
-            rows: HEIGHT,
+            cols: 80,
+            rows: 24,
             cwd: process.env.PWD,
             env: process.env
         });
