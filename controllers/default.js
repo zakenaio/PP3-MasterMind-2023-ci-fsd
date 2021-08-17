@@ -1,6 +1,9 @@
 const Pty = require('node-pty');
 const fs = require('fs');
 
+var width = process.env.WIDTH != null ? process.env.WIDTH : 80;
+var height = process.env.HEIGHT != null ? process.env.HEIGHT : 24;
+
 exports.install = function () {
 
     // Route to views/index
