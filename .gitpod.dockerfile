@@ -40,10 +40,6 @@ ENV PATH=$PYTHONUSERBASE/bin:$PATH
 # Setup Heroku CLI
 RUN curl https://cli-assets.heroku.com/install.sh | sh
 
-# Setup Python linters
-
-RUN pip3 install flake8 flake8-flask flake8-django
-
 # Setup PostgreSQL
 
 RUN sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list' && \
