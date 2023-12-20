@@ -1,8 +1,79 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+MasterMind
 
-Welcome,
+Initialt idea by Tech with Tim (LINK -  https://www.youtube.com/watch?v=sP-gFDreaQ4&themeRefresh=1)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+My GitHub - 
+My Live Deploy - 
+
+I loved playing MasterMind when I was younger, I was never any good at it, but played it a lot. 
+When I found Tech with Tims version it was a perfect plattform to build upon. 
+Alterations. 
+The idea is to break a 4 (or more) colored code in as few tries as possible. 
+
+
+The user should be greeted with a Welcome message. print_welcome_message()
+Logo and Menu. Start Game > levels - Rules - Quit. -Simple_term_menu. 
+	
+Need to Clear the Screen on Start / Quit, and menu options. 
+
+The user Need visual feed back on their color choices and where they have placed them. 
+For easiest use, choose one color at the time. Report errors if not a Color has been chosen. 
+(You need to choose a color - Options RGBYWO
+[ R G B Y ] 
+
+Levels? 
+Easy - Four colors 20 tries
+Medium - Four colors 10 ties 
+Hard - Five color colors 10 tries
+
+
+Welcome Logo Message - print_welcome_message()
+TOOL - https://textkool.com/en/ascii-art-generator?hl=default&vl=default&font=NV%20Script&text=MasterMind
+
+ 
+
+                  _                  _           _ 
+  /\/\   __ _ ___| |_ ___ _ __ /\/\ (_)_ __   __| |
+ /    \ / _` / __| __/ _ \ '__/    \| | '_ \ / _` |
+/ /\/\ \ (_| \__ \ ||  __/ | / /\/\ \ | | | | (_| |
+\/    \/\__,_|___/\__\___|_| \/    \/_|_| |_|\__,_|
+                                                    
+Extended Python Version
+
+simple_term_menu - LINK - https://pypi.org/project/simple-term-menu/
+TerminalMenu handles all of the menu options. 
+
+Menu. main_menu()
+		Start Game - Starts Game()
+		Rules of Mastermind display_rules()- Get you to The rules of the game. 
+					with a return option. / Start game? 
+		Quit - quit() quits the game. 
+
+
+CLEAR SCREEN
+import os
+os.system('cls') # windows
+os.system('clear')  # on linux / os x
+
+COLORS R red G green B blue Y yellow W white O orange 
+Use colorama for colors? 
+
+
+Rules screen. 
+
+def display_rules():
+    print("Rules for MasterMind:")
+    print("1. The computer will generate a secret code consisting of a sequence of colors.")
+    print("2. Your task is to guess the code.")
+    print("3. You have a limited number of tries to guess the code.")
+    print("4. After each guess, you will receive feedback on the correctness of your guess.")
+    print("   - 'Correct Positions' indicates the number of colors in the correct positions.")
+    print("   - 'Incorrect Positions' indicates the number of correct colors in the wrong positions.")
+    print("5. The game ends when you correctly guess the code or run out of tries.")
+    print("   The colors are Red, Green, Blue, Yellow, White and Orange.")
+    print("   Good luck!")
+
+
 
 ## Reminders
 
@@ -19,7 +90,6 @@ When you create the app, you will need to add two buildpacks from the _Settings_
 
 You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
 
 Connect your GitHub repository and deploy as normal.
 
