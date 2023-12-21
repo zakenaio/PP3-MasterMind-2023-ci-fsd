@@ -28,9 +28,7 @@ Hard - Five color colors 10 tries
 
 
 Welcome Logo Message - print_welcome_message()
-TOOL - https://textkool.com/en/ascii-art-generator?hl=default&vl=default&font=NV%20Script&text=MasterMind
-
- 
+TOOL - https://textkool.com/en/ascii-art-generator
 
                   _                  _           _ 
   /\/\   __ _ ___| |_ ___ _ __ /\/\ (_)_ __   __| |
