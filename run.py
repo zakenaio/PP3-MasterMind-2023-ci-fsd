@@ -3,8 +3,8 @@ import random
 print(logo)
 
 COLORS = ["R", "G", "B", "Y", "W", "O"]
-TRIES = 5
-CODE_LENGTH = 4
+TRIES = 20
+CODE_LENGHT = 4
 
 def generate_code():
     """
@@ -14,7 +14,7 @@ def generate_code():
     
     """
     code = []
-    for _ in range(CODE_LENGTH):
+    for _ in range(CODE_LENGHT):
         color = random.choice(COLORS)
         code.append(color)
     print(code)
