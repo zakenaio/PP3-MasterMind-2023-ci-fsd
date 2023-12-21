@@ -2,11 +2,34 @@
 import random
 import os
 from art import logo
+from simple_term_menu import TerminalMenu
 
 #CONSTANTS 
 COLORS = ["R", "G", "B", "Y", "W", "O"]
 TRIES = 5
 CODE_LENGTH = 4
+
+def main_menu():
+    """
+    Displays the menu. 
+    Rules 
+    Start - With levels later
+    Quit
+    """
+    # Define menu items
+    menu_items = ["Rules of MasterMind", "Start MasterMind", "Quit"]
+    # Create a menu object
+    menu = TerminalMenu(menu_items)
+    # Show the menu and get the user's selection
+    menu_entry_index = menu.show()
+
+    # Handle user selection
+    if menu_entry_index == 0:
+        input("Press any key to return to menu.")
+    elif menu_entry_index == 1:
+        game()
+    elif menu_entry_index == 2:
+        quit()
 
 def generate_code():
     """
@@ -67,42 +90,32 @@ def check_code(guess, real_code):
     os.system('clear')
     print(f"Guess: {guess} | Correct Positions: {correct_pos} | Incorrect Positions: {incorrect_pos}.")
 
-def play_again():
-    while True:
-        answer = input("Do you want to play again? (yes/no): ").lower()
-        if answer == "yes":
-            return True
-        elif answer == "no":
-            return False
-        else:
-            print("Invalid input. Please enter 'yes' or 'no'.")
-
 def game():
     """
     HERE BE GAME!
-
-    Need to add menus, here? or over?
     """
-    while True:
-        os.system('clear')
-        print(logo)
-        print(f"Welcome to MasterMind. \nYou have {TRIES} tries to guess the code using {CODE_LENGTH} colors...")
-        print("The valid colors are", *COLORS)
+    os.system('clear')
+    print(logo)
+    print(f"Welcome to MasterMind. \nYou have {TRIES} tries to guess the code using {CODE_LENGTH} colors...")
+    print("The valid colors are", *COLORS)
 
-        real_code = generate_code()
-        for attempts in range(1, TRIES + 1):
-            guess = guess_code()
-            check_code(guess, real_code)
 
-            if sorted(guess) == sorted(real_code):
-                print(f"You guessed the code in {attempts} tries!\n A real MasterMind")
-                break
+    main_menu()
 
-        else:
-            print("You ran out of tries, the code was", *real_code)
+    real_code = generate_code()
+    for attempts in range(1, TRIES + 1):
+        guess = guess_code()
+        check_code(guess, real_code)
 
-        if not play_again():
+        if sorted(guess) == sorted(real_code):
+            print(f"You guessed the code in {attempts} tries!\n A real MasterMind")
             break
 
+    else:
+        print("You ran out of tries, the code was", *real_code)
+
+
+# Main entry point of the program
 if __name__ == "__main__":
     game()
+
