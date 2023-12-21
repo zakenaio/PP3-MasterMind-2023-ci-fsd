@@ -1,7 +1,7 @@
 # Import necessary modules
 import random
 import os
-from art import logo, win, rules
+from art import logo, win, rules, lvls
 from simple_term_menu import TerminalMenu
 from colorama import Fore, Back, Style
 
@@ -30,8 +30,10 @@ def display_rules():
     print("2. Your task is to guess the code.")
     print("3. You have a limited number of tries to guess the code.")
     print("4. After each guess, you will receive feedback on the correctness of your guess.")
-    print("   - 'Correct Positions' indicates the number of colors in the correct positions.")
-    print("   - 'Incorrect Positions' indicates the number of correct colors in the wrong positions.")
+    print("   - 'Correct Positions'")
+    print("      indicates the number of colors in the correct positions.")
+    print("   - 'Incorrect Positions'")
+    print("      indicates the number of correct colors in the wrong positions.")
     print("5. The game ends when you correctly guess the code or run out of tries.")
     print("   The colors are Red, Green, Blue, Yellow, White and Orange.")
     print("   Good luck!")
@@ -42,9 +44,10 @@ def display_levels():
     in the menu.
     """
     os.system('clear')
+    print(lvls)
     print("Select a difficulty level:")
     # Define level items
-    level_items = ["Easy - 20 tries, code length 4", "Medium - 10 tries, code length 4", "Hard - 10 tries, code length 5"]
+    level_items = ["Easy - 15 tries, code length 4", "Medium - 10 tries, code length 4", "Hard - 10 tries, code length 5"]
     # Create a level menu object
     level_menu = TerminalMenu(level_items)
     # Show the level menu and get the user's selection
@@ -52,7 +55,7 @@ def display_levels():
 
     # Handle user selection
     if level_entry_index == 0:
-        return 20, 4
+        return 15, 4
     elif level_entry_index == 1:
         return 10, 4
     elif level_entry_index == 2:
