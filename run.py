@@ -1,8 +1,9 @@
 # Import necessary modules
 import random
 import os
-from art import logo, win
+from art import logo, win, rules
 from simple_term_menu import TerminalMenu
+from colorama import Fore, Back, Style
 
 #CONSTANTS 
 # Define the colors used in the game
@@ -13,9 +14,9 @@ def print_welcome_message():
     Display a welcome message
     """
     os.system('clear')
-    print(logo)
-    print("Welcome to MasterMind Python Edition.")
-    print("Select an option from the menu below:")
+    print(Fore.RED + logo)
+    print(Style.RESET_ALL + "Select an option from the menu below:")
+    print("")
 
 print_welcome_message()
 
@@ -24,7 +25,7 @@ def display_rules():
     Display the rules of the game
     """
     os.system('clear')
-    print("Rules for MasterMind:")
+    print(rules)
     print("1. The computer will generate a secret code consisting of a sequence of colors.")
     print("2. Your task is to guess the code.")
     print("3. You have a limited number of tries to guess the code.")
@@ -83,9 +84,11 @@ def main_menu():
 
 def generate_code(code_length):
     """
-    Genereates a random code
+    Generate a random code of specified length from the list of colors
+    and returns it
     """
     code = [random.choice(COLORS) for _ in range(code_length)]
+    print(f"the real code for testing {code}")
     return code
 
 
@@ -116,16 +119,22 @@ def guess_code(code_length):
     return guess
     # Need a counter, you have {tries} left. Maybe. Maybe.
 
+
 def check_code(guess, real_code):
     """
-    Checks code 'guess' against 'real_code' 
-    USE ZIP! Go back to lovesandwich.    
+    Checks code 'guess' against 'real_code'  
+    First for loop counts occurrences of each 
+    color in the real code  
+
+    Second loop checks guess against real_code for 
+    correct posstion. 
+
+    Third for incorrect. 
     """
     color_counts = {}
     correct_pos = 0
     incorrect_pos = 0
 
-    # Count occurrences of each color in the real code
     for color in real_code:
         if color not in color_counts:
             color_counts[color] = 0
@@ -148,15 +157,12 @@ def check_code(guess, real_code):
 def game(tries, code_length):
     """
     HERE BE GAME!
-
-    Doenst work...
     """
     os.system('clear')
-    print(logo)
-    print(f"Welcome to MasterMind. \nYou have {tries} tries to guess the code using {code_length} colors...")
+    print(f"Test your skills. \n \nYou have {tries} tries to guess the code using {code_length} colors...\n")
     print("The valid colors are", *COLORS)
 
-   # Generate the secret code
+    # Generate the secret code
     real_code = generate_code(code_length)
 
     # Iterate through the allowed number of tries
@@ -173,7 +179,7 @@ def game(tries, code_length):
             print(win)
             print(f"You guessed the code in {attempts} tries!\n A real MasterMind")
             break
-    
+
     # If the player runs out of tries, display the correct code
     else:
         os.system('clear')

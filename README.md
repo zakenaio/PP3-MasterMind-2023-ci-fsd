@@ -42,6 +42,8 @@ TOOL - https://textkool.com/en/ascii-art-generator
 simple_term_menu - LINK - https://pypi.org/project/simple-term-menu/
 TerminalMenu handles all of the menu options. 
 
+Colorama LINK - https://pypi.org/project/colorama/
+
 Menu. main_menu()
 
 
