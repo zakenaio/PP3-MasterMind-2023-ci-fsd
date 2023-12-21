@@ -30,11 +30,6 @@ Hard - Five color colors 10 tries
 Welcome Logo Message - print_welcome_message()
 TOOL - https://textkool.com/en/ascii-art-generator
 
-                  _                  _           _ 
-  /\/\   __ _ ___| |_ ___ _ __ /\/\ (_)_ __   __| |
- /    \ / _` / __| __/ _ \ '__/    \| | '_ \ / _` |
-/ /\/\ \ (_| \__ \ ||  __/ | / /\/\ \ | | | | (_| |
-\/    \/\__,_|___/\__\___|_| \/    \/_|_| |_|\__,_|
                                                     
 Extended Python Version
 
