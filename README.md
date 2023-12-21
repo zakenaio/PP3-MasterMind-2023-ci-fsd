@@ -6,41 +6,44 @@ My GitHub -
 My Live Deploy - 
 
 I loved playing MasterMind when I was younger, I was never any good at it, but played it a lot. 
-When I found Tech with Tims version it was a perfect plattform to build upon. 
-Alterations. 
-The idea is to break a 4 (or more) colored code in as few tries as possible. 
+I did Tims version in early summer 2023, and had a lot of ideas of how to improve. 
 
+The player should be greeted by a big friendly Logo. 
+MasterMind 
+And a menu for easy access to Rules, a way to choose levels, and to quit the game. 
+The rules (found here) are really not that hard, but they are extensive
+enough to cover a large part of the game screen. 
+Not optimal. This was more or less the only reason for the menus. 
 
-The user should be greeted with a Welcome message. print_welcome_message()
-Logo and Menu. Start Game > levels - Rules - Quit. -Simple_term_menu. 
-	
-Need to Clear the Screen on Start / Quit, and menu options. 
+I really wanted levels, i would recquire a major overhaul of the games logic. 
+Here the user is greeted by three different options. 
 
-The user Need visual feed back on their color choices and where they have placed them. 
-For easiest use, choose one color at the time. Report errors if not a Color has been chosen. 
-(You need to choose a color - Options RGBYWO
-[ R G B Y ] 
+- Easy - Four colors 20 tries
+- Medium - Four colors 10 ties 
+- Hard - Five color colors 10 tries
 
-Levels? 
-Easy - Four colors 20 tries
-Medium - Four colors 10 ties 
-Hard - Five color colors 10 tries
+The real challange for me was to make this work. Both game mechanics, and menus.
+The user needs a seamless way to work. Easy up down and enter.
+
+Single letter input with visual markers for where you have put your color. 
+Here is yet another really important part of the new ux, its much easier
+for the user to just input one color at the time, with visual feedback.
+Instead of all four / or five for hard. 
+
+[ R - - - ] 
+[ R G - - ] 
+
 
 
 Welcome Logo Message - print_welcome_message()
 TOOL - https://textkool.com/en/ascii-art-generator
 
-                                                    
-Extended Python Version
 
 simple_term_menu - LINK - https://pypi.org/project/simple-term-menu/
 TerminalMenu handles all of the menu options. 
 
 Menu. main_menu()
-		Start Game - Starts Game()
-		Rules of Mastermind display_rules()- Get you to The rules of the game. 
-					with a return option. / Start game? 
-		Quit - quit() quits the game. 
+
 
 
 CLEAR SCREEN
